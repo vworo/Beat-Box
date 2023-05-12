@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const client_id = 'db3fb3b60f7c44cf843733eb2c0976bf';
@@ -14,18 +13,6 @@ function App() {
   const authorize = () => {
         window.location.href = SERVER_URL;
   };
-
-  const [accessToken, setAccessToken] = useState(null);
-
-  useEffect(() => {
-    const hash = window.location.hash;
-    const token = hash.split('&')[0].split('=')[1];
-    if (token) {
-      setAccessToken(token);
-    }
-  }, []);
-
-  
 
   return (
     <div>
