@@ -26,26 +26,26 @@ function App() {
   };
 
   const showToken = () => {
-    const client_id = 'CLIENT_ID';
-    const client_secret = 'CLIENT_SECRET';
+    const client_id = 'db3fb3b60f7c44cf843733eb2c0976bf';
+    const client_secret = 'cdfb228fe09841ef863840d271a8d739';
 
-    var authOptions = {
-      url: 'https://accounts.spotify.com/api/token',
+    const url = 'https://accounts.spotify.com/api/token';
+    const data = 'grant_type=client_credentials';
+
+    const config = {
       headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret)
-      },
-      form: {
-        grant_type: 'client_credentials'
-      },
-      json: true
+      }
     };
 
-    // axios("https://accounts.spotify.com/api/token").then((response) => {
-    //console.log(response);
-    axios(authOptions).then((error, response, body) => {
-        console.log(response);
-        console.log(body);
-    }) 
+    axios.post(url, data, config)
+    .then((response) => {
+      console.log(response.data.access_token);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   return (
