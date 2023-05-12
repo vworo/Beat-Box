@@ -1,4 +1,5 @@
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
 
 const client_id = 'db3fb3b60f7c44cf843733eb2c0976bf';
 const redirect_uri = 'http://localhost:5173';
@@ -10,15 +11,12 @@ SERVER_URL += '&redirect_uri=' + encodeURIComponent(redirect_uri);
 function App() {
 
   const authorize = () => {
-    axios(SERVER_URL).then((response) => {
-        console.log(response);
-    });
+    window.location.href = SERVER_URL;
   };
 
   return (
     <div>
-      <input type="text" />
-      <button onClick={ authorize }>Get Song</button>
+      <button onClick={ authorize }>Login</button>
 
       {/* <BrowserRouter>
         <Routes>
