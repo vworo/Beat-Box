@@ -12,7 +12,7 @@ server_url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
 
 function App() {
 
-  // Create usestate to keep track of token across all components within App
+  // Create usestate to keep track of token across all components within App, use token in subsequent calls
   const [accessToken, setAccessToken] = useState(null);
 
   // Changes current URL the server_url where user will login to Spotify
@@ -21,9 +21,9 @@ function App() {
   };
 
   // Call api to get token
-  const showToken = () => {
+  const getToken = () => {
 
-    // Create URL for axious with the relevant headers and client data
+    // Create URL for axios with the relevant headers and client data
     const url = 'https://accounts.spotify.com/api/token';
     const data = 'grant_type=client_credentials';
     const config = {
@@ -37,13 +37,14 @@ function App() {
     axios.post(url, data, config)
     .then((response) => {
       setAccessToken(response.data.access_token);
-      console.log('Access token updated:', accessToken);
     })
     .catch((error) => {
       console.log(error);
     });
   }
 
+  // ??? Not sure but correctly updates the usestate 
+  //TODO: Check why this is executing twice upon page load
   useEffect(() => {
     console.log('Access token changed:', accessToken);
   }, [accessToken]);
@@ -51,7 +52,7 @@ function App() {
   return (
     <div>
       <button onClick={ authorize }>Login</button>
-      <button onClick={ showToken }>Show Token</button>
+      <button onClick={ getToken }>Get Token</button>
     </div>
   )
 }
