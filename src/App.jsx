@@ -12,6 +12,8 @@ server_url += '?response_type=token';
 server_url += '&client_id=' + encodeURIComponent(client_id);
 server_url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
 
+
+
 function App() {
 
   // Create usestate to keep track of token across all components within App, use token in subsequent calls
