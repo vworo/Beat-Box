@@ -17,7 +17,7 @@ export default function Root() {
             </li>
             <h2 className="library">Your Library</h2>
             <li>
-              <Link to={'/home'}>Liked Songs</Link>
+              <Link to={'/app'}>Liked Songs</Link>
             </li>
             <li>
               <Link to={'/home'}>Playlist 1</Link>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const client_id = 'db3fb3b60f7c44cf843733eb2c0976bf';
 const redirect_uri = 'http://localhost:5173';
@@ -19,11 +19,11 @@ function App() {
       <input type="text" />
       <button onClick={ authorize }>Log in on Spotify</button>
 
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route  />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   )
 }

@@ -7,6 +7,7 @@ import {
 import "./index.css";
 import Home from "./components/Home";
 import Root from "./Root";
+import App from "./App";
 
 console.log("You are at the following location:", window.location);
 
@@ -20,8 +21,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "home",
-        element: <Home />,
+        path: "app",
+        element: <App />,
       },
       {
         path: "home",
