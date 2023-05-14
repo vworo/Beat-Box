@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import NavigationSidebar from "./components/NavigationSidebar";
 import { Outlet, Link } from "react-router-dom";
 import React from "react";
+import axios from 'axios';
 
 
 // Spotify OAuth URLs/redirects
@@ -19,10 +20,27 @@ function App() {
   // Create usestate to keep track of token across all components within App, use token in subsequent calls
   const [accessToken, setAccessToken] = useState(null);
 
+  const [displayPlaylists, setDisplayPlaylists] = useState([]);
+
   // Changes current URL the server_url where user will login to Spotify
   const authorize = () => {
     window.location.href = server_url;
   };
+
+  const getPlaylist = (token) => {
+    axios.get('https://api.spotify.com/v1/me/playlists',
+    {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then((response) => {
+      // set displayPLaylists to response items 
+      setDisplayPlaylists(response.data.items);
+      console.log(displayPlaylists)
+    })
+  };
+
+
+  
 
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
@@ -30,13 +48,13 @@ function App() {
     const token = params.get('access_token');
     if (token) {
       setAccessToken(token);
+      getPlaylist(token);
     }
   }, []);
 
   return (
     <React.Fragment>
-      <NavigationSidebar />
-
+      <NavigationSidebar playlists={ displayPlaylists } />
       <div id="detail">
         <div className="top-navbar">
           <button onClick={ authorize }>Login</button>
@@ -45,7 +63,6 @@ function App() {
         <Outlet />
       </div>
     </React.Fragment>
-
   )
 }
 
