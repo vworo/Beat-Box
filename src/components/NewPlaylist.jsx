@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const PlaylistForm = () => {
+const NewPlaylist = () => {
 
 }
-export default PlaylistForm;
+export default NewPlaylist;
