@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
-import Root from "./Root";
 import App from "./App";
 
 console.log("You are at the following location:", window.location);
@@ -14,7 +13,7 @@ console.log("You are at the following location:", window.location);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <App />,
     children: [
       {
         path: "home",
@@ -23,18 +22,6 @@ const router = createBrowserRouter([
       {
         path: "app",
         element: <App />,
-      },
-      {
-        path: "home",
-        element: <Home />,
-      },
-      {
-        path: "home",
-        element: <Home />,
-      },
-      {
-        path: "home",
-        element: <Home />,
       },
     ]
   },

@@ -1,9 +1,11 @@
-import axios from "axios";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import NavigationSidebar from "./components/NavigationSidebar";
+import { Outlet, Link } from "react-router-dom";
+import React from "react";
+
 
 // Spotify OAuth URLs/redirects
 const client_id = 'db3fb3b60f7c44cf843733eb2c0976bf';
-const client_secret = 'cdfb228fe09841ef863840d271a8d739';
 const redirect_uri = 'http://localhost:5173';
 let server_url = 'https://accounts.spotify.com/authorize';
 server_url += '?response_type=token';
@@ -20,44 +22,31 @@ function App() {
     window.location.href = server_url;
   };
 
-  // Call api to get token
-  const getToken = () => {
-
-    // Create URL for axios with the relevant headers and client data
-    const url = 'https://accounts.spotify.com/api/token';
-    const data = 'grant_type=client_credentials';
-    const config = {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret)
-      }
-    };
-
-    // Make request to server with above data
-    axios.post(url, data, config)
-    .then((response) => {
-      setAccessToken(response.data.access_token);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
-
-  // ??? Not sure but correctly updates the usestate 
-  //TODO: Check why this is executing twice upon page load
+  // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
-    console.log('Access token changed:', accessToken);
-  }, [accessToken]);
+    const params = new URLSearchParams(window.location.hash.substr(1));
+    const token = params.get('access_token');
+    if (token) {
+      setAccessToken(token);
+    }
+  }, []);
 
   return (
-    <div>
-      <button onClick={ authorize }>Login</button>
-      <button onClick={ getToken }>Get Token</button>
-    </div>
+    <React.Fragment>
+      <NavigationSidebar />
+
+      <div id="detail">
+        <div className="top-navbar">
+          <button onClick={ authorize }>Login</button>
+          <p>Access Token: {accessToken}</p>
+        </div>
+        <Outlet />
+      </div>
+    </React.Fragment>
+
   )
 }
 
 export default App
 
 // client id : db3fb3b60f7c44cf843733eb2c0976bf
-// client secret: cdfb228fe09841ef863840d271a8d739
