@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import NavigationSidebar from "./components/NavigationSidebar";
+import Footer from './components/Footer';
 import { Outlet, Link } from "react-router-dom";
 import React from "react";
 import axios from 'axios';
@@ -52,20 +53,16 @@ function App() {
     <React.Fragment>
 
       <NavigationSidebar playlists={ displayPlaylists } />
-
-      <div id="detail">
-
-        <div className="top-navbar"> 
-
-          <button onClick={ authorize }>Login</button>
-          <p>Access Token: {accessToken}</p>
-
+      <div id="container">
+        <div id="detail">
+          <div className="top-navbar">
+            <button onClick={ authorize }>Login</button>
+            <p>Access Token: {accessToken}</p>
+          </div>
+          <Outlet />
         </div>
-
-        <Outlet />
-
       </div>
-
+      <Footer />
     </React.Fragment>
   )
 }
