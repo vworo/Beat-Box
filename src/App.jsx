@@ -53,7 +53,6 @@ function App() {
     <React.Fragment>
 
       <NavigationSidebar playlists={ displayPlaylists } />
-<<<<<<< HEAD
       <div id="container">
         <div id="detail">
           <div className="top-navbar">
@@ -64,23 +63,6 @@ function App() {
         </div>
       </div>
       <Footer />
-=======
-
-      <div id="detail">
-
-        <div className="top-navbar"> 
-
-          <Searcher token={accessToken} />
-          <button onClick={ authorize }>Login</button>
-          <p>Access Token: {accessToken}</p>
-
-        </div>
-
-        <Outlet />
-
-      </div>
-
->>>>>>> 5575de43d2ec5ebfaa6ac4a8fb64253f2f458ab0
     </React.Fragment>
   )
 }
