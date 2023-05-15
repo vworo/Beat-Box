@@ -7,7 +7,7 @@ export default function NavigationSidebar(props) {
     console.log('props', props);
   })
   
-  const listItems = props.playlists.map((playlist, i) => <li key={i}>{playlist.name}</li>)
+  let listItems = props.playlists && props.playlists.map((playlist, i) => <li key={i}>{playlist.name}</li>)
 
   return (
       <div id="sidebar">
