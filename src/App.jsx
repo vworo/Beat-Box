@@ -56,6 +56,7 @@ function App() {
       <div id="container">
         <div id="detail">
           <div className="top-navbar">
+            <Searcher token={accessToken} />
             <button onClick={ authorize }>Login</button>
             <p>Access Token: {accessToken}</p>
           </div>
