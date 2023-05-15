@@ -4,17 +4,16 @@ import Footer from './components/Footer';
 import { Outlet, Link } from "react-router-dom";
 import React from "react";
 import axios from 'axios';
-
+import Searcher from "./components/Searcher";
 
 // Spotify OAuth URLs/redirects
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 const client_id = 'db3fb3b60f7c44cf843733eb2c0976bf';
 const redirect_uri = 'http://localhost:5173';
 let server_url = 'https://accounts.spotify.com/authorize';
 server_url += '?response_type=token';
 server_url += '&client_id=' + encodeURIComponent(client_id);
 server_url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
-
-
 
 function App() {
 
@@ -40,9 +39,6 @@ function App() {
     })
   };
 
-
-  
-
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash.substr(1));
@@ -55,7 +51,9 @@ function App() {
 
   return (
     <React.Fragment>
+
       <NavigationSidebar playlists={ displayPlaylists } />
+<<<<<<< HEAD
       <div id="container">
         <div id="detail">
           <div className="top-navbar">
@@ -66,6 +64,23 @@ function App() {
         </div>
       </div>
       <Footer />
+=======
+
+      <div id="detail">
+
+        <div className="top-navbar"> 
+
+          <Searcher token={accessToken} />
+          <button onClick={ authorize }>Login</button>
+          <p>Access Token: {accessToken}</p>
+
+        </div>
+
+        <Outlet />
+
+      </div>
+
+>>>>>>> 5575de43d2ec5ebfaa6ac4a8fb64253f2f458ab0
     </React.Fragment>
   )
 }
