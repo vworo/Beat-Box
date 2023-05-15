@@ -1,21 +1,12 @@
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import NavigationSidebar from "./components/NavigationSidebar";
 import { Outlet, Link } from "react-router-dom";
 import React from "react";
 import axios from 'axios';
-
-// Spotify OAuth URLs/redirects
-=======
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import axios from "axios";
-import { useState, useEffect } from 'react'
 import Searcher from "./components/Searcher";
 
-
-
->>>>>>> some changes
+// Spotify OAuth URLs/redirects
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 const client_id = 'db3fb3b60f7c44cf843733eb2c0976bf';
 const redirect_uri = 'http://localhost:5173';
 let server_url = 'https://accounts.spotify.com/authorize';
