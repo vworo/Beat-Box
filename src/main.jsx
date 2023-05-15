@@ -6,15 +6,15 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
-import Root from "./Root";
 import App from "./App";
+import Playlists from "./components/Playlists";
 
 console.log("You are at the following location:", window.location);
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <App />,
     children: [
       {
         path: "home",
@@ -25,16 +25,8 @@ const router = createBrowserRouter([
         element: <App />,
       },
       {
-        path: "home",
-        element: <Home />,
-      },
-      {
-        path: "home",
-        element: <Home />,
-      },
-      {
-        path: "home",
-        element: <Home />,
+        path: "playlists",
+        element: <Playlists />,
       },
     ]
   },

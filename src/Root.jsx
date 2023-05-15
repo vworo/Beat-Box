@@ -20,7 +20,7 @@ export default function Root() {
               <Link to={'/app'}>Liked Songs</Link>
             </li>
             <li>
-              <Link to={'/home'}>Playlist 1</Link>
+              <Link to={'/playlists'}>Playlist 1</Link>
             </li>
             <li>
               <Link to={'/home'}>Playlist 2</Link>
