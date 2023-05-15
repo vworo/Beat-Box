@@ -57,6 +57,7 @@ function App() {
 
         <div className="top-navbar"> 
 
+          <Searcher token={accessToken} />
           <button onClick={ authorize }>Login</button>
           <p>Access Token: {accessToken}</p>
 
