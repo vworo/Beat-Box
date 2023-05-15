@@ -5,6 +5,7 @@ import { Outlet, Link } from "react-router-dom";
 import React from "react";
 import axios from 'axios';
 import Searcher from "./components/Searcher";
+import NavigationTopbar from './components/NavigationTopbar';
 
 // Spotify OAuth URLs/redirects
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -55,11 +56,7 @@ function App() {
       <NavigationSidebar playlists={ displayPlaylists } />
       <div id="container">
         <div id="detail">
-          <div className="top-navbar">
-            <Searcher token={accessToken} />
-            <button onClick={ authorize }>Login</button>
-            <p>Access Token: {accessToken}</p>
-          </div>
+          <NavigationTopbar authorize={ authorize } token={ accessToken }/>
           <Outlet />
         </div>
       </div>
