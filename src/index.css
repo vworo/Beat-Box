@@ -15,8 +15,72 @@ html {
 }
 
 .link-border {
-  width: 350px;
+  width: 340px;
   border-bottom: 5px solid rgb(0, 0, 0);
+}
+
+#detail {
+  /* width: 1600px; */
+  display: block;
+  position: relative;
+  height: 100%;
+  padding: 2rem 4rem;
+  background-color: #121212;
+  width: 99%;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin-top: 0.5em;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 89%;
+  color: white;
+  background-color: black;
+}
+
+footer {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 11%;
+  background-color: black;
+}
+
+.panel {
+  display: inline-block;
+  width: 33%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#current {
+  color: white;
+}
+#currentimg {
+  display: inline-block;
+}
+#songplaying {
+  display: inline-block;
+}
+
+#controls {
+  text-align: center;
+}
+
+#controls > button > img {
+  height: 20px;
+}
+
+#next {
+  .invert { filter: invert(100%); }
+}
+
+#sound {
+  text-align: right;
 }
 
 h2 {
@@ -135,18 +199,26 @@ nav > ul > li {
   padding-left: 5px;
 }
 
+#topbar {
+  height: 20%;
+}
+
+#bottombar {
+  height: 80%;
+}
+
 #sidebar {
   color: white;
   width: 22rem;
-  background-color: #1a1919;
-  border-right: solid 7px #000000;
+  background-color: #000000;
   display: flex;
   flex-direction: column;
+  /* margin-bottom: 80px; */
+  height: 89%;
 }
 
 #sidebar > * {
-  padding-left: 0rem;
-  padding-right: 2rem;
+  padding: 4em;
 }
 
 #sidebar h1 {
@@ -214,9 +286,15 @@ nav > ul > li {
 }
 
 #sidebar nav {
-  flex: 1;
+  /* flex: 1; */
   /* overflow: auto; */
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
   padding-top: 1rem;
+  width: 95%;
+  border-radius: 0.5em;
+  background-color: #121212;
+  padding: 1em;
 }
 
 #sidebar nav a span {
@@ -269,12 +347,6 @@ i {
 
 #sidebar nav a.pending {
   color: hsl(224, 98%, 58%);
-}
-
-#detail {
-  flex: 1;
-  padding: 2rem 4rem;
-  width: 100%;
 }
 
 #detail.loading {
