@@ -55,6 +55,7 @@ footer {
   width: 33%;
   padding-left: 10px;
   padding-right: 10px;
+  vertical-align: top;
 }
 
 #current {
@@ -65,28 +66,50 @@ footer {
 }
 #songplaying {
   display: inline-block;
+  margin-left: 15px;
+}
+
+#grayp {
+  color: gray;
 }
 
 #controls {
   text-align: center;
+  margin-top: 7px;
 }
 
 #controls > button > img {
   height: 20px;
 }
 
-#next {
+/* #next {
   .invert { filter: invert(100%); }
-}
+} */
 
 #sound {
   text-align: right;
+  margin-top: 30px;
+  height: 70px;
 }
 
 #play {
   height: 40px;
   width: 40px;
   border-radius: 20px;
+  margin: 10px;
+}
+
+#soundbar > img {
+  /* height: 30px; */
+  width: 100%;
+}
+
+#volume {
+  padding: 5px 0;
+}
+
+.sound {
+  vertical-align: top;
 }
 
 .blackicons {
