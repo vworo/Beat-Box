@@ -11,7 +11,7 @@ export default function NavigationSidebar(props) {
   let listItems =
     props.playlists &&
     props.playlists.map((playlist, i) => (
-      <li key={i}>
+      <li id="playlists" key={i}>
         <Link to="/playlist">{playlist.name}</Link>
       </li>
     ));

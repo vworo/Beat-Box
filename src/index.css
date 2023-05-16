@@ -332,6 +332,10 @@ i {
   margin: 0.25rem 0;
 }
 
+#playlists {
+  list-style: none;
+}
+
 #sidebar nav a {
   display: flex;
   align-items: center;
