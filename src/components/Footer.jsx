@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faBackward, faForward, faRepeat, faShuffle } from '@fortawesome/free-solid-svg-icons';
 
 export default function Footer () {
     return (
@@ -11,11 +13,11 @@ export default function Footer () {
         </div>
         </div>
         <div id="controls" className="panel">
-            <button id="shuffle"> Shuffle </button>
-            <button id="previous"> Previous </button>
-            <button id="play"> Play/Pause </button>
-            <button id="next"><img src="https://i.imgur.com/X6zEghw.jpg" alt="" /></button>
-            <button id="repeat"> repeat </button>
+            <button id="shuffle" className="blackicons"><FontAwesomeIcon icon={faShuffle} style={{color: "#ffffff",}} /></button>
+            <button id="previous" className="blackicons"><FontAwesomeIcon icon={faBackward} style={{color: "#ffffff",}} /></button>
+            <button id="play"><FontAwesomeIcon icon={faPlay} style={{color: "#000000",}} /></button>
+            <button id="next" className="blackicons"><FontAwesomeIcon icon={faForward} style={{color: "#ffffff",}} /></button>
+            <button id="repeat" className="blackicons"><FontAwesomeIcon icon={faRepeat} style={{color: "#ffffff",}} /></button>
         </div>
         <div id="sound" className="panel">
         <button id="lyrics">lyrics</button>
