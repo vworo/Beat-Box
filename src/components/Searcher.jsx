@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Searcher = (props) => {
@@ -59,4 +59,36 @@ const Searcher = (props) => {
     )
 }
 
-export default Searcher
+    setTracks(artistTracks.data.tracks);
+
+
+  const handlePlay = (uri) => {
+    // This function will handle playing the selected track
+    // You can call your player component here and pass the uri of the selected track as a prop
+    return <Players uri={uri} />;
+  }  
+
+  return (
+    <>
+      <div className="SearchForm">
+        <input
+          className="Name"
+          type="text"
+          placeholder="Search By Artist Name ..."
+          onChange={(e) => { setSearchKey(e.target.value) }}
+        />
+        <button onClick={searchArtist}>Search</button>
+      </div>
+      {
+        tracks.slice(0, 5).map(track => (
+          <div key={track.id} className="Track" onClick={() => handlePlay(track.uri)}>
+            <div className="Track-title">{track.name}</div>
+            <div className="Track-artist">{track.artists[0].name}</div>
+            <div className="Track-album">{track.album.name}</div>
+          </div>
+        ))
+      }
+    </>
+  );
+
+export default Searcher;

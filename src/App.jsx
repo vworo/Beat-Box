@@ -34,11 +34,14 @@ function App() {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then((response) => {
-      // set displayPLaylists to response items 
+      // set displayPlaylists to response items 
       setDisplayPlaylists(response.data.items);
       console.log(displayPlaylists)
     })
   };
+
+
+  
 
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {

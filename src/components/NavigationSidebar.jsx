@@ -1,13 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import LikedSongs from "./LikedSongs";
 
 export default function NavigationSidebar(props) {
   useEffect(() => {
     console.log('props', props);
-  })
+  });
   
-  let listItems = props.playlists && props.playlists.map((playlist, i) => <li key={i}>{playlist.name}</li>)
+  let listItems =
+    props.playlists &&
+    props.playlists.map((playlist, i) => (
+      <li key={i}>
+        <Link to="/playlist">{playlist.name}</Link>
+      </li>
+    ));
 
   return (
       <div id="sidebar">
@@ -25,7 +32,9 @@ export default function NavigationSidebar(props) {
           <ul>
             <h2 className="library">Your Library</h2>
             <li>
-              <Link to={'/app'}>Liked Songs</Link>
+            <li>
+              <Link to={'/liked-songs'}>Liked Songs</Link>
+            </li>
             </li>
           </ul>
               {listItems}
