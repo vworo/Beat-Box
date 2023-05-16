@@ -8,7 +8,7 @@ export default function NavigationSidebar(props) {
     console.log('props', props);
   });
   
-  let listItems =
+  let userPlaylists =
     props.playlists &&
     props.playlists.map((playlist, i) => (
       <li id="playlists" key={i}>
@@ -37,7 +37,7 @@ export default function NavigationSidebar(props) {
             </li>
             </li>
           </ul>
-              {listItems}
+              {userPlaylists}
           <ul>
 
           </ul>
