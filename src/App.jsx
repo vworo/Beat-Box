@@ -7,7 +7,7 @@ import axios from 'axios';
 import Searcher from "./components/Searcher";
 import NavigationTopbar from './components/NavigationTopbar';
 import Playlists from "./components/Playlists";
-
+import WebPlayback from './components/WebPlayback';
 
 // Spotify OAuth URLs/redirects
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -59,14 +59,23 @@ function App() {
     <React.Fragment>
 
       <NavigationSidebar playlists={ displayPlaylists } />
+
       <div id="container">
+
+        <NavigationTopbar authorize={ authorize } token={ accessToken }/>
+
         <div id="detail">
           <NavigationTopbar authorize={ authorize } token={ accessToken }/>
           <Playlists />
+          <WebPlayback />
           <Outlet />
+
         </div>
+
       </div>
+      
       <Footer />
+
     </React.Fragment>
   )
 }
