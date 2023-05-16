@@ -6,6 +6,8 @@ import React from "react";
 import axios from 'axios';
 import Searcher from "./components/Searcher";
 import NavigationTopbar from './components/NavigationTopbar';
+import Playlists from "./components/Playlists";
+
 
 // Spotify OAuth URLs/redirects
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -60,6 +62,7 @@ function App() {
       <div id="container">
         <div id="detail">
           <NavigationTopbar authorize={ authorize } token={ accessToken }/>
+          <Playlists />
           <Outlet />
         </div>
       </div>
