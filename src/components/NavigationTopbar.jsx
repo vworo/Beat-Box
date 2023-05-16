@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Searcher from "./Searcher";
 
 export default function NavigationTopbar(props) {
@@ -13,11 +13,14 @@ export default function NavigationTopbar(props) {
         props.authorize();
     };
 
-
     return (
       <div className="top-navbar">
         <Searcher token={ props.token }/>
-        <button onClick={ authorize }>Login</button>
+        { props.token ? (
+          <img className="login" src="http://placekitten.com/50/50" alt="" />
+        ) : (
+          <button className="login" onClick={ authorize }>Login</button>
+        )}
       </div>
   );
 }
