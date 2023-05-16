@@ -65,7 +65,6 @@ function App() {
         <NavigationTopbar authorize={ authorize } token={ accessToken }/>
 
         <div id="detail">
-          <NavigationTopbar authorize={ authorize } token={ accessToken }/>
           <Playlists />
           <WebPlayback />
           <Outlet />
