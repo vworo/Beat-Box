@@ -8,6 +8,7 @@ import "./index.css";
 import Home from "./components/Home";
 import App from "./App";
 import Playlists from "./components/Playlists";
+import LikedSongs from './components/LikedSongs';
 
 console.log("You are at the following location:", window.location);
 
@@ -28,9 +29,14 @@ const router = createBrowserRouter([
         path: "playlists",
         element: <Playlists />,
       },
-    ]
+      {
+        path: "liked-songs",
+        element: <LikedSongs />,
+      },
+    ],
   },
 ]);
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
