@@ -5,6 +5,7 @@ import { Outlet, Link } from "react-router-dom";
 import React from "react";
 import axios from 'axios';
 import Searcher from "./components/Searcher";
+import NavigationTopbar from './components/NavigationTopbar';
 
 // Spotify OAuth URLs/redirects
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -33,11 +34,14 @@ function App() {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then((response) => {
-      // set displayPLaylists to response items 
+      // set displayPlaylists to response items 
       setDisplayPlaylists(response.data.items);
       console.log(displayPlaylists)
     })
   };
+
+
+  
 
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
@@ -55,11 +59,7 @@ function App() {
       <NavigationSidebar playlists={ displayPlaylists } />
       <div id="container">
         <div id="detail">
-          <div className="top-navbar">
-            <Searcher token={accessToken} />
-            <button onClick={ authorize }>Login</button>
-            <p>Access Token: {accessToken}</p>
-          </div>
+          <NavigationTopbar authorize={ authorize } token={ accessToken }/>
           <Outlet />
         </div>
       </div>

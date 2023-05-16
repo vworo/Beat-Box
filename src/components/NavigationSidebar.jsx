@@ -6,9 +6,15 @@ import LikedSongs from "./LikedSongs";
 export default function NavigationSidebar(props) {
   useEffect(() => {
     console.log('props', props);
-  })
+  });
   
-  const listItems = props.playlists.map((playlist, i) => <li key={i}>{playlist.name}</li>)
+  let listItems =
+    props.playlists &&
+    props.playlists.map((playlist, i) => (
+      <li key={i}>
+        <Link to="/playlist">{playlist.name}</Link>
+      </li>
+    ));
 
   return (
       <div id="sidebar">
