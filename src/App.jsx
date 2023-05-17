@@ -25,12 +25,13 @@ function App() {
 
   const [displayPlaylists, setDisplayPlaylists] = useState([]);
 
+  const [currentPlaylist, setCurrentPlaylist] = useState(null);
   // Changes current URL the server_url where user will login to Spotify
   const authorize = () => {
     window.location.href = server_url;
   };
 
-  const getPlaylist = (token) => {
+  const getPlaylists = (token) => {
     axios.get('https://api.spotify.com/v1/me/playlists',
     {
       headers: { Authorization: `Bearer ${token}` }
@@ -41,6 +42,18 @@ function App() {
       console.log(displayPlaylists)
     })
   };
+  
+  const loadPlaylist = (playlist) => {
+    setCurrentPlaylist(playlist);
+    // axios.get('https://api.spotify.com/v1/playlists/4vaOiY36ujveTzcRGa9u5b/tracks',
+    // {
+    //   headers: { Authorization: `Bearer ${accessToken}` }
+    // })
+    // .then((response) => {
+    //   console.log('tracks', response)
+    // })
+    // console.log('loadPlaylist!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', playlist);
+  }
 
 
   
@@ -51,24 +64,22 @@ function App() {
     const token = params.get('access_token');
     if (token) {
       setAccessToken(token);
-      getPlaylist(token);
+      getPlaylists(token);
     }
   }, []);
 
   return (
     <React.Fragment>
 
-      <NavigationSidebar playlists={ displayPlaylists } />
+      <NavigationSidebar playlists={ displayPlaylists } onPlaylistClicked={ loadPlaylist } token={ accessToken }/>
 
       <div id="container">
 
         <NavigationTopbar authorize={ authorize } token={ accessToken }/>
 
         <div id="detail">
-          <Playlists />
           <WebPlayback />
-          <Outlet />
-
+          <Outlet displayPlaylist={ currentPlaylist } />
         </div>
 
       </div>
