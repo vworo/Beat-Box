@@ -44,7 +44,6 @@ export default function Playlists(props) {
         return (
             <div>
                 <h1>{state.displayPlaylist.name}</h1>
-                <ul>{playlistSongs}</ul>
             </div>
         );
     } else {
