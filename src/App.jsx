@@ -44,14 +44,6 @@ function App() {
   
   const loadPlaylist = (playlist) => {
     setCurrentPlaylist(playlist);
-    // axios.get('https://api.spotify.com/v1/playlists/4vaOiY36ujveTzcRGa9u5b/tracks',
-    // {
-    //   headers: { Authorization: `Bearer ${accessToken}` }
-    // })
-    // .then((response) => {
-    //   console.log('tracks', response)
-    // })
-    // console.log('loadPlaylist!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', playlist);
   }
 
 
