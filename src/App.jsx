@@ -33,30 +33,22 @@ function App() {
 
   const getPlaylists = (token) => {
     axios.get('https://api.spotify.com/v1/me/playlists',
-    {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    .then((response) => {
-      // set displayPlaylists to response items 
-      setDisplayPlaylists(response.data.items);
-      console.log(displayPlaylists)
-    })
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then((response) => {
+        // set displayPlaylists to response items 
+        setDisplayPlaylists(response.data.items);
+        // console.log(displayPlaylists)
+      })
   };
-  
+
   const loadPlaylist = (playlist) => {
     setCurrentPlaylist(playlist);
-    // axios.get('https://api.spotify.com/v1/playlists/4vaOiY36ujveTzcRGa9u5b/tracks',
-    // {
-    //   headers: { Authorization: `Bearer ${accessToken}` }
-    // })
-    // .then((response) => {
-    //   console.log('tracks', response)
-    // })
-    // console.log('loadPlaylist!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', playlist);
   }
 
 
-  
+
 
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
@@ -71,19 +63,18 @@ function App() {
   return (
     <React.Fragment>
 
-      <NavigationSidebar playlists={ displayPlaylists } onPlaylistClicked={ loadPlaylist } token={ accessToken }/>
+      <NavigationSidebar playlists={displayPlaylists} onPlaylistClicked={loadPlaylist} token={accessToken} />
 
       <div id="container">
 
-        <NavigationTopbar authorize={ authorize } token={ accessToken }/>
+        <NavigationTopbar authorize={authorize} token={accessToken} />
 
         <div id="detail">
-          <WebPlayback />
-          <Outlet displayPlaylist={ currentPlaylist } />
+          <Outlet displayPlaylist={currentPlaylist} />
         </div>
 
       </div>
-      
+
       <Footer />
 
     </React.Fragment>
