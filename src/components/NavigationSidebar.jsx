@@ -34,22 +34,14 @@ export default function NavigationSidebar(props) {
 						<Link to={'/home'}>Home</Link>
 					</li>
 					<li >
-						<Link to={'/home'}>Search</Link>
+						<Link to={'/search'}>Search</Link>
 					</li>
 				</ul>
 			</nav>
 			<nav id="bottombar">
 				<ul>
 					<h2 className="library">Your Library</h2>
-					<ul>
-						<li>
-							<Link to={'/liked-songs'}>Liked Songs</Link>
-						</li>
-					</ul>
-				</ul>
-				{userPlaylists}
-				<ul>
-
+					{userPlaylists}
 				</ul>
 			</nav>
 		</div>

@@ -309,6 +309,63 @@ nav > ul > li {
   top: 0.75rem;
 }
 
+#playlists {
+  list-style: none;
+}
+
+#playlistSongs {
+  max-height: calc(100vh - 200px); /* Adjust the value (200px) according to your footer height */
+  overflow-y: auto;
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+#playlistSongs ul {
+  list-style-type: none; /* Remove dot points */
+  padding: 0; /* Remove default padding */
+}
+
+#playlistSongs ul li {
+  margin-bottom: 5px;
+}
+
+.song-item span {
+  margin-right: 5px;
+}
+
+.song-item:hover {
+  color: #eeb004;
+  background-color: #202020;
+}
+
+.song-item:focus {
+  outline: none;
+  background-color: #777777;
+}
+
+.song-item:active {
+  transform: translateY(1px);
+  background-color: #121212;
+}
+
+.song-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -353,10 +410,6 @@ i {
 
 #sidebar li {
   margin: 0.25rem 0;
-}
-
-#playlists {
-  list-style: none;
 }
 
 #sidebar nav a {
@@ -593,3 +646,4 @@ i {
   height: 100%;
   object-fit: cover;
 }
+

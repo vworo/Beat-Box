@@ -18,8 +18,25 @@ const Searcher = (props) => {
           type: "track,album,artist,playlist"
         }
       });
+      // window.location.href = "http://localhost:5173/home";
+      // navigate("http://localhost:5173/home");
 
-      setResults(data.data);
+      let artistID = data.data.artists.items[0].id;
+
+      let artistTracks = await axios.get(`https://api.spotify.com/v1/artists/${artistID}/top-tracks`, {
+        headers: {
+          Authorization: `Bearer ${props.token}`
+        },
+        params: {
+          limit: 10,
+          market: 'US'
+        }
+      });
+
+      props.onSearchResults(artistTracks.data.tracks);
+
+
+      setTracks(artistTracks.data.tracks);
     } else {
       setResults({});
       
@@ -39,50 +56,6 @@ const Searcher = (props) => {
           }}
         />
       </div>
-      {results.tracks && (
-        <div>
-          <h2>Tracks</h2>
-          {results.tracks.items.slice(0, 5).map(track => (
-            <div key={track.id} className="Track" onClick={() => handlePlay(track.uri)}>
-              <div className="Track-title">{track.name}</div>
-              <div className="Track-artist">{track.artists[0].name}</div>
-              <div className="Track-album">{track.album.name}</div>
-            </div>
-          ))}
-        </div>
-      )}
-      {results.albums && (
-        <div>
-          <h2>Albums</h2>
-          {results.albums.items.slice(0, 5).map(album => (
-            <div key={album.id} className="Album">
-              <div className="Album-name">{album.name}</div>
-              <div className="Album-artist">{album.artists[0].name}</div>
-            </div>
-          ))}
-        </div>
-      )}
-      {results.artists && (
-        <div>
-          <h2>Artists</h2>
-          {results.artists.items.slice(0, 5).map(artist => (
-            <div key={artist.id} className="Artist">
-              <div className="Artist-name">{artist.name}</div>
-            </div>
-          ))}
-        </div>
-      )}
-      {results.playlists && (
-        <div>
-          <h2>Playlists</h2>
-          {results.playlists.items.slice(0, 5).map(playlist => (
-            <div key={playlist.id} className="Playlist">
-              <div className="Playlist-name">{playlist.name}</div>
-              <div className="Playlist-owner">{playlist.owner.display_name}</div>
-            </div>
-          ))}
-        </div>
-      )}
     </>
   );
 }

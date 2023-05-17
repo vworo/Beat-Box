@@ -24,7 +24,7 @@ export default function NavigationTopbar(props) {
 
   return (
     <div className="top-navbar">
-      <Searcher token={props.token} />
+      <Searcher token={props.token} onSearchResults={ props.onSearchResults } />
 
       {userProfile ? (
         <div className="profile-image-container">

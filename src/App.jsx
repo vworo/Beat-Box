@@ -24,6 +24,7 @@ function App() {
   const [accessToken, setAccessToken] = useState(null);
   const [displayPlaylists, setDisplayPlaylists] = useState([]);
 
+  const [searchResults, setSearchResults] = useState([]);
   const [currentPlaylist, setCurrentPlaylist] = useState(null);
   // Changes current URL the server_url where user will login to Spotify
   const authorize = () => {
@@ -32,30 +33,20 @@ function App() {
 
   const getPlaylists = (token) => {
     axios.get('https://api.spotify.com/v1/me/playlists',
-    {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    .then((response) => {
-      // set displayPlaylists to response items 
-      setDisplayPlaylists(response.data.items);
-      console.log(displayPlaylists)
-    })
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then((response) => {
+        // set displayPlaylists to response items 
+        setDisplayPlaylists(response.data.items);
+        console.log(displayPlaylists)
+      })
   };
   
   const loadPlaylist = (playlist) => {
     setCurrentPlaylist(playlist);
-    // axios.get('https://api.spotify.com/v1/playlists/4vaOiY36ujveTzcRGa9u5b/tracks',
-    // {
-    //   headers: { Authorization: `Bearer ${accessToken}` }
-    // })
-    // .then((response) => {
-    //   console.log('tracks', response)
-    // })
-    // console.log('loadPlaylist!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', playlist);
   }
 
-
-  
 
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
@@ -74,11 +65,11 @@ function App() {
 
       <div id="container">
 
-        <NavigationTopbar authorize={ authorize } token={ accessToken }/>
+        <NavigationTopbar authorize={ authorize } token={ accessToken } onSearchResults={ setSearchResults }/>
 
         <div id="detail">
-          <WebPlayback />
-          <Outlet displayPlaylist={ currentPlaylist } />
+
+          <Outlet context={{ searchResults }} />
         </div>
 
       </div>
