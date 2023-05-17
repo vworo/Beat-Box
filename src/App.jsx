@@ -77,7 +77,7 @@ function App() {
         <NavigationTopbar authorize={ authorize } token={ accessToken }/>
 
         <div id="detail">
-          <WebPlayback />
+
           <Outlet displayPlaylist={ currentPlaylist } />
         </div>
 
