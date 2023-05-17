@@ -15,11 +15,11 @@ export default function NavigationSidebar(props) {
 		props.playlists &&
 		props.playlists.map((playlist, i) => (
 			<li id="playlists" key={i} onClick={() => _onPlaylistClick(playlist)}>
-				<Link to="/playlist" 
+				<Link to="/playlist"
 					state={{
 						displayPlaylist: playlist,
 						token: props.token
-					}} 
+					}}
 				>
 					{playlist.name}
 				</Link>
@@ -41,11 +41,11 @@ export default function NavigationSidebar(props) {
 			<nav id="bottombar">
 				<ul>
 					<h2 className="library">Your Library</h2>
-					<li>
+					<ul>
 						<li>
 							<Link to={'/liked-songs'}>Liked Songs</Link>
 						</li>
-					</li>
+					</ul>
 				</ul>
 				{userPlaylists}
 				<ul>
