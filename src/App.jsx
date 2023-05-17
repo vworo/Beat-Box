@@ -32,14 +32,14 @@ function App() {
 
   const getPlaylists = (token) => {
     axios.get('https://api.spotify.com/v1/me/playlists',
-    {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    .then((response) => {
-      // set displayPlaylists to response items 
-      setDisplayPlaylists(response.data.items);
-      console.log(displayPlaylists)
-    })
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then((response) => {
+        // set displayPlaylists to response items 
+        setDisplayPlaylists(response.data.items);
+        console.log(displayPlaylists)
+      })
   };
   
   const loadPlaylist = (playlist) => {

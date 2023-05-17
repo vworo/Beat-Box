@@ -41,15 +41,7 @@ export default function NavigationSidebar(props) {
 			<nav id="bottombar">
 				<ul>
 					<h2 className="library">Your Library</h2>
-					<ul>
-						<li>
-							<Link to={'/liked-songs'}>Liked Songs</Link>
-						</li>
-					</ul>
-				</ul>
-				{userPlaylists}
-				<ul>
-
+					{userPlaylists}
 				</ul>
 			</nav>
 		</div>
