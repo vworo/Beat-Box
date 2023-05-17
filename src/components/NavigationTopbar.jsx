@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Searcher from "./Searcher";
 import Categories from "./Categories";
+import UserProfile from './UserProfile';
 
 export default function NavigationTopbar(props) {
   const [userProfile, setUserProfile] = useState(null);
