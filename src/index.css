@@ -309,6 +309,48 @@ nav > ul > li {
   top: 0.75rem;
 }
 
+#playlistSongs ul li button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+#playlistSongs ul {
+  list-style-type: none; /* Remove dot points */
+  padding: 0; /* Remove default padding */
+}
+
+#playlistSongs ul li {
+  padding: 10px 0; /* Add padding between songs */
+}
+
+#playlistSongs ul li button span {
+  margin-right: 5px;
+}
+
+#playlistSongs ul li button:hover {
+  color: #eeb004;
+  background-color: #202020;
+}
+
+#playlistSongs ul li button:focus {
+  outline: none;
+  background-color: #777777;
+}
+
+#playlistSongs ul li button:active {
+  transform: translateY(1px);
+  background-color: #121212;
+}
+
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
