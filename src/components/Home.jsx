@@ -5,16 +5,36 @@ const Home = () => {
     const {searchResults} = useOutletContext();
 
     return (
-        <div>
+        <div id="playlistSongs">
             <h2>Search Results</h2>
+            <ul>
+                {searchResults.map((item, index) => (
+                     <li key={index}>
+                     <div className="song-item" onClick={() => console.log("Clicked!")}>
+                        <img
+                           src={item.album.images[0].url}
+                           alt={item.album.name}
+                        />
+                        <div>
+                           <div>{item.name}</div>
+                           <div className="artist-names">
+                              {item.artists.map((artist, artistIndex) => (
+                                 <span key={artistIndex}>
+                                    {artistIndex > 0 && ", "}
+                                    {artist.name}
+                                 </span>
+                              ))}
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                ))}
+            </ul>
             
-            {searchResults.slice(0, 5).map(track => (
-                <div key={track.id} className="Track" onClick={() => handlePlay(track.uri)}>
-                <div className="Track-title">{track.name}</div>
-                <div className="Track-artist">{track.artists[0].name}</div>
-                <div className="Track-album">{track.album.name}</div>
-                </div>
-            ))}
+
+            {
+
+            }
         </div>
     );
 };
