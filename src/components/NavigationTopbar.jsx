@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Searcher from "./Searcher";
+import Categories from "./Categories";
 
 export default function NavigationTopbar(props) {
 //   useEffect(() => {
@@ -16,7 +17,7 @@ export default function NavigationTopbar(props) {
     return (
       <div className="top-navbar">
         <Searcher token={ props.token }/>
-        
+        <Categories token={ props.token }/>
         { props.token ? (
           <img className="login" src="http://placekitten.com/50/50" alt="" />
         ) : (
