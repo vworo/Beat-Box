@@ -24,6 +24,7 @@ function App() {
   const [accessToken, setAccessToken] = useState(null);
   const [displayPlaylists, setDisplayPlaylists] = useState([]);
 
+  const [searchResults, setSearchResults] = useState([]);
   const [currentPlaylist, setCurrentPlaylist] = useState(null);
   // Changes current URL the server_url where user will login to Spotify
   const authorize = () => {
@@ -47,8 +48,6 @@ function App() {
   }
 
 
-  
-
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash.substr(1));
@@ -66,11 +65,11 @@ function App() {
 
       <div id="container">
 
-        <NavigationTopbar authorize={ authorize } token={ accessToken }/>
+        <NavigationTopbar authorize={ authorize } token={ accessToken } onSearchResults={ setSearchResults }/>
 
         <div id="detail">
 
-          <Outlet displayPlaylist={ currentPlaylist } />
+          <Outlet context={{ searchResults }} />
         </div>
 
       </div>
