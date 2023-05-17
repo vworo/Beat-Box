@@ -17,6 +17,8 @@ const Searcher = (props) => {
           type: "artist"
         }
       });
+      // window.location.href = "http://localhost:5173/home";
+      // navigate("http://localhost:5173/home");
 
       let artistID = data.data.artists.items[0].id;
 
@@ -29,6 +31,9 @@ const Searcher = (props) => {
           market: 'US'
         }
       });
+
+      props.onSearchResults(artistTracks.data.tracks);
+
 
       setTracks(artistTracks.data.tracks);
     } else {
@@ -49,13 +54,6 @@ const Searcher = (props) => {
           }}
         />
       </div>
-      {tracks.slice(0, 5).map(track => (
-        <div key={track.id} className="Track" onClick={() => handlePlay(track.uri)}>
-          <div className="Track-title">{track.name}</div>
-          <div className="Track-artist">{track.artists[0].name}</div>
-          <div className="Track-album">{track.album.name}</div>
-        </div>
-      ))}
     </>
   );
 }
