@@ -22,7 +22,6 @@ function App() {
 
   // Create usestate to keep track of token across all components within App, use token in subsequent calls
   const [accessToken, setAccessToken] = useState(null);
-
   const [displayPlaylists, setDisplayPlaylists] = useState([]);
 
   const [currentPlaylist, setCurrentPlaylist] = useState(null);
