@@ -309,6 +309,11 @@ nav > ul > li {
   top: 0.75rem;
 }
 
+#playlistSongs {
+  max-height: calc(100vh - 200px); /* Adjust the value (200px) according to your footer height */
+  overflow-y: auto;
+}
+
 #playlistSongs ul li button {
   display: flex;
   align-items: center;
@@ -316,7 +321,7 @@ nav > ul > li {
   border: none;
   color: white;
   font-size: 16px;
-  padding: 0;
+  padding: 10px;
   cursor: pointer;
   text-align: left;
   width: 100%;
@@ -328,7 +333,7 @@ nav > ul > li {
 }
 
 #playlistSongs ul li {
-  padding: 10px 0; /* Add padding between songs */
+  margin-bottom: 10px;
 }
 
 #playlistSongs ul li button span {
