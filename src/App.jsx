@@ -39,7 +39,7 @@ function App() {
       .then((response) => {
         // set displayPlaylists to response items 
         setDisplayPlaylists(response.data.items);
-        // console.log(displayPlaylists)
+        console.log(displayPlaylists)
       })
   };
 
