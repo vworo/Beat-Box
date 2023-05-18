@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Searcher from "./Searcher";
 import Categories from "./Categories";
+import UserProfile from './UserProfile';
 
 export default function NavigationTopbar(props) {
   const [userProfile, setUserProfile] = useState(null);
@@ -23,7 +24,7 @@ export default function NavigationTopbar(props) {
 
   return (
     <div className="top-navbar">
-      <Searcher token={props.token} />
+      <Searcher token={props.token} onSearchResults={ props.onSearchResults } />
 
       {userProfile ? (
         <div className="profile-image-container">
