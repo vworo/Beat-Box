@@ -9,6 +9,8 @@ import Home from "./components/Home";
 import App from "./App";
 import Playlists from "./components/Playlists";
 import LikedSongs from './components/LikedSongs';
+import Categories from "./components/Categories";
+
 
 console.log("You are at the following location:", window.location);
 
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "home",
-        element: <Home />,
+        element: <Categories />,
       },
       {
         path: "search",
@@ -33,6 +35,7 @@ const router = createBrowserRouter([
         path: "liked-songs",
         element: <LikedSongs />,
       },
+      
     ],
   },
 ]);

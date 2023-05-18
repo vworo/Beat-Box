@@ -313,9 +313,55 @@ nav > ul > li {
   list-style: none;
 }
 
-#playlistSongs {
+#playlistSongs{
   max-height: calc(100vh - 200px); /* Adjust the value (200px) according to your footer height */
   overflow-y: auto;
+}
+
+.trendingList{
+  max-height: calc(100vh - 250px); /* Adjust the value (200px) according to your footer height */
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.playlist-card {
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 4px;
+  display: flex;
+  text-align: center;
+  background-color: rgb(33, 33, 33);
+}
+.track-name {
+  font-size: 14px;
+  font-weight: bold;
+  color:white;
+  font-size: 80%;
+
+}
+.playlist-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.trendingList h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: block;
+  width:100%;
+}
+a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.playlist-card:hover {
+  background-color:rgba(128, 128, 128, 0.934);
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .song-item {
