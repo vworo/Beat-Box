@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import App from "./App";
 import Playlists from "./components/Playlists";
 import LikedSongs from './components/LikedSongs';
+import Login from './components/Login';
 
 console.log("You are at the following location:", window.location);
 
@@ -18,8 +19,8 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "home",
-        element: <Home />,
+        path: "login",
+        element: <Login />,
       },
       {
         path: "search",
