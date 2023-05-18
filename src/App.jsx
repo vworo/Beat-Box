@@ -17,7 +17,8 @@ const redirect_uri = 'http://localhost:5173';
 let server_url = 'https://accounts.spotify.com/authorize';
 server_url += '?response_type=token';
 server_url += '&client_id=' + encodeURIComponent(client_id);
-server_url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+server_url += '&redirect_uri=' + encodeURIComponent(redirect_uri)
+server_url += '&scope=streaming%20user-read-email%20user-read-private%20user-read-playback-state%20user-modify-playback-state';
 
 function App() {
 
@@ -27,6 +28,8 @@ function App() {
 
   const [searchResults, setSearchResults] = useState([]);
   const [currentPlaylist, setCurrentPlaylist] = useState(null);
+
+  const [songsUriList, setSongsUriList] = useState([]);
   // Changes current URL the server_url where user will login to Spotify
   const authorize = () => {
     window.location.href = server_url;
@@ -48,6 +51,9 @@ function App() {
     setCurrentPlaylist(playlist);
   }
 
+  const loadSongsUriList = (song) => {
+    setSongsUriList([song?.track?.uri]);
+  }
 
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
@@ -62,7 +68,7 @@ function App() {
   return (
     <React.Fragment>
 
-      <NavigationSidebar playlists={ displayPlaylists } onPlaylistClicked={ loadPlaylist } token={ accessToken }/>
+      <NavigationSidebar playlists={displayPlaylists} onPlaylistClicked={loadPlaylist} token={accessToken} />
 
       <div id="container">
 
@@ -70,13 +76,13 @@ function App() {
 
         <div id="detail">
 
-          <Outlet context={{ searchResults, accessToken }} /> 
+          <Outlet context={{ searchResults, accessToken, onSongClicked: loadSongsUriList }} /> 
           
         </div>
 
       </div>
       
-      <Footer />
+      <Footer token={accessToken} songsUriList={songsUriList} />
 
     </React.Fragment>
   )
