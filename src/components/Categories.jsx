@@ -61,8 +61,9 @@ const Categories = () => {
 
     return (
         <div>
-            <h1>Trending Playlists</h1>
-            
+            <div className='header'>
+                <h1>Trending Playlists</h1>
+            </div>
 
                 <div className="trendingList">
                     {trendingPlaylists.map(playlist => (

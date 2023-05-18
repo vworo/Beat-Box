@@ -175,6 +175,7 @@ button {
   margin: 10px;
   background-color: #00ff59;
   border: 1.5px solid white;
+  margin-left: auto;
 }
 
 .login:hover {
@@ -677,8 +678,15 @@ i {
 }
 
 .top-navbar {
-  display: flex;
   background-color: hsl(0, 0%, 7%);
+  position: fixed;
+  /* top: 0; */
+  z-index: 9999999;
+  display: flex;
+  width: 77%;
+  padding-bottom: 0.5em;
+  display: flex;
+  margin: auto;
 }
 
 .login {
@@ -706,21 +714,21 @@ i {
   width: 65px;
   height: 65px;
   margin-left: auto;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   right: 0;
   top: 0;
 }
 
 .user-name {
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  right: 65px;
-  top: 42px;
+  right: 9px;
+  top: 66px;
   font-family: 'Circular Spotify Tx T Light', 'Helvetica Neue', 'Arial', 'sans-serif';
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  color: #acacac;
   margin-right: auto;
 }
 
@@ -759,3 +767,16 @@ i {
   border: 2px solid #1db954;
 }
 
+.profile-info-container {
+  margin-left: auto;
+}
+
+h1 {
+  padding-top: 1em;
+  margin-bottom: 1px;
+}
+
+h2 {
+  padding-top: 1em;
+  margin-bottom: 1px;
+}
