@@ -28,7 +28,7 @@ const Categories = (props) => {
                         
                     })
             })
-            })
+            }) 
 
     return (
         <>
