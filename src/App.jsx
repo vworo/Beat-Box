@@ -66,10 +66,12 @@ function App() {
 
       <div id="container">
 
-        <NavigationTopbar authorize={ authorize } token={ accessToken }/>
+        
 
         <div id="detail">
-
+          <header>
+          <NavigationTopbar authorize={ authorize } token={ accessToken }/>
+          </header>
           <Outlet displayPlaylist={ currentPlaylist } />
         </div>
 
