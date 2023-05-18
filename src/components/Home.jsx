@@ -6,7 +6,7 @@ const Home = () => {
 
     return (
         <div id="playlistSongs">
-            <h2>Search Results</h2>
+            <h1>Search Results</h1>
             <ul>
                 {searchResults.map((item, index) => (
                      <li key={index}>
