@@ -1,66 +1,93 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useOutletContext } from "react-router-dom";
 import axios from 'axios';
+import { Link } from "react-router-dom";
+const Categories = () => {
+    const { accessToken } = useOutletContext();
+    const [trendingPlaylists, setTrendingPlaylists] = useState([]);
 
-const Categories = (props) => {
-    const [tracks, setTracks] = useState([])
-    axios("https://api.spotify.com/v1/browse/categories", {
-            headers: {
-                'Authorization': `Bearer ${props.token}`
-            },
-            params: {
-                country: "AU",
-            }
-        }).then(response => {const categoryId =(response.data.categories.items[1].id);
-            axios(`https://api.spotify.com/v1/browse/categories/${categoryId}/playlists`, {
-                headers: {
-                    'Authorization': `Bearer ${props.token}`
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+
+                // Make an HTTP GET request to retrieve featured playlists (toplists)
+                const featuredPlaylistsResponse = await axios.get('https://api.spotify.com/v1/browse/featured-playlists', {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    },
+                    params: {
+                        limit: 50,
+                        offset: 0,
+                        country: 'AU'
+                    }
+
                 }
-            })
-            .then(response => {const playlistId = (response.data.playlists.items[0].id);
-                    console.log(playlistId)
-                    axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+                );
+
+                // Extract the trending playlists from the response data
+                const trendingPlaylists = featuredPlaylistsResponse.data.playlists.items;
+
+                // Fetch 5 tracks for each playlist
+                const playlistsWithTracks = await Promise.all(trendingPlaylists.map(async (playlist) => {
+                    const playlistTracksResponse = await axios.get(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
                         headers: {
-                            'Authorization': `Bearer ${props.token}`
+                            'Authorization': `Bearer ${accessToken}`
+                        },
+                        params: {
+                            limit: 50
                         }
-                    }).then (response => { 
-                        console.log(response)
-                        setTracks(response.data.items)
-                        
-                    })
-            })
-            }) 
+                    });
+
+                    // Extract the tracks from the response data
+                    const playlistTracks = playlistTracksResponse.data.items;
+
+                    // Return the playlist object with its tracks
+                    return {
+                        ...playlist,
+                        tracks: playlistTracks
+                    };
+                }));
+
+                // Set the trending playlists with tracks in state
+                setTrendingPlaylists(playlistsWithTracks);
+            } catch (error) {
+                console.error(`Error retrieving trending playlists: ${error.message}`);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     return (
-        <>
-            {
-            tracks.slice(0, 5).map(track => (
-            <div key={track.id} className="Track">
-                <div className="Track-title">{track.track.name}</div>
-                <div className="Track-artist">{track.track.artists[0].name}</div>  
+        <div>
+            <h1>Trending Playlists</h1>
+            
+
+                <div className="trendingList">
+                    {trendingPlaylists.map(playlist => (
+                        <div key={playlist.id}>
+                            <div className="container">
+                            <div className="playlist-card">
+                            
+
+                                <Link to="/playlist"
+                                    state={{
+                                        displayPlaylist: playlist,
+                                        token: accessToken
+                                    }}
+                                >
+                                    <img className="playlist-image" src={playlist.images[0].url} alt={playlist.name} />
+                                    <span className="track-name">{playlist.name}</span>
+                                </Link>
+                            </div>
+                        </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-            ))
-            }
-        </> 
-    )   
-
-}
-         
         
+    );
+};
 
-
-   
-    
-
-
-function shuffle(array) {
-    const shuffledArray = [...array];
-  
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const randomIndex = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[i]];
-    }
-  
-    return shuffledArray;
-  }
-
-export default Categories
+export default Categories;

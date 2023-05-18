@@ -8,6 +8,7 @@ import Searcher from "./components/Searcher";
 import NavigationTopbar from './components/NavigationTopbar';
 import Playlists from "./components/Playlists";
 import WebPlayback from './components/WebPlayback';
+import Categories from './components/Categories';
 
 // Spotify OAuth URLs/redirects
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -69,7 +70,8 @@ function App() {
 
         <div id="detail">
 
-          <Outlet context={{ searchResults }} />
+          <Outlet context={{ searchResults, accessToken }} /> 
+          
         </div>
 
       </div>

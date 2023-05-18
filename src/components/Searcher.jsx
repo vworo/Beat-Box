@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Searcher = (props) => {
   const [searchKey, setSearchKey] = useState("");
-  const [results, setResults] = useState({});
+  const [tracks, setTracks] = useState({});
 
   const search = async () => {
     if (searchKey.length > 0) {
@@ -38,7 +38,7 @@ const Searcher = (props) => {
 
       setTracks(artistTracks.data.tracks);
     } else {
-      setResults({});
+      setTracks([]);
       
     }
   };
