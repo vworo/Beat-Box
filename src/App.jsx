@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react';
 import NavigationSidebar from "./components/NavigationSidebar";
 import Footer from './components/Footer';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import React from "react";
 import axios from 'axios';
-import Searcher from "./components/Searcher";
 import NavigationTopbar from './components/NavigationTopbar';
-import Playlists from "./components/Playlists";
-import WebPlayback from './components/WebPlayback';
-import Categories from './components/Categories';
 
 // Spotify OAuth URLs/redirects
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -18,13 +14,14 @@ let server_url = 'https://accounts.spotify.com/authorize';
 server_url += '?response_type=token';
 server_url += '&client_id=' + encodeURIComponent(client_id);
 server_url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+server_url += '&scope=streaming%20user-read-email%20user-read-private%20user-read-playback-state%20user-modify-playback-state';
 
 function App() {
 
   // Create usestate to keep track of token across all components within App, use token in subsequent calls
   const [accessToken, setAccessToken] = useState(null);
   const [displayPlaylists, setDisplayPlaylists] = useState([]);
-
+  const [songsUriList, setSongsUriList] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [currentPlaylist, setCurrentPlaylist] = useState(null);
   // Changes current URL the server_url where user will login to Spotify
@@ -48,6 +45,13 @@ function App() {
     setCurrentPlaylist(playlist);
   }
 
+  const loadSongsUriList = (song) => {
+    setSongsUriList([song?.track?.uri]);
+  }
+
+  const loadSongUri = (song) => {
+    setSongsUriList([song?.uri]);
+  }
 
   // Add this effect to extract the token from the URL after the user is redirected back to the app
   useEffect(() => {
@@ -62,21 +66,21 @@ function App() {
   return (
     <React.Fragment>
 
-      <NavigationSidebar playlists={ displayPlaylists } onPlaylistClicked={ loadPlaylist } token={ accessToken }/>
+      <NavigationSidebar playlists={displayPlaylists} onPlaylistClicked={loadPlaylist} token={accessToken} />
 
       <div id="container">
 
-        <NavigationTopbar authorize={ authorize } token={ accessToken } onSearchResults={ setSearchResults }/>
-
         <div id="detail">
 
-          <Outlet context={{ searchResults, accessToken }} /> 
+          <NavigationTopbar authorize={ authorize } token={ accessToken } onSearchResults={ setSearchResults }/>
+
+          <Outlet context={{ searchResults, accessToken, onSongClicked: loadSongsUriList, onSearchSongClicked: loadSongUri }} />
           
         </div>
 
       </div>
       
-      <Footer />
+      <Footer token={accessToken} songsUriList={songsUriList} />
 
     </React.Fragment>
   )

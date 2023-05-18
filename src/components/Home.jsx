@@ -2,7 +2,12 @@ import { useOutletContext } from "react-router-dom";
 
 const Home = () => {
 
-    const {searchResults} = useOutletContext();
+   const {searchResults} = useOutletContext();
+   const context = useOutletContext();
+
+   const _onSongClicked = (song) => {
+      context.onSearchSongClicked(song);
+   }
 
     return (
         <div id="playlistSongs">
@@ -10,7 +15,7 @@ const Home = () => {
             <ul>
                 {searchResults.map((item, index) => (
                      <li key={index}>
-                     <div className="song-item" onClick={() => console.log("Clicked!")}>
+                        <div className="song-item" onClick={ () => _onSongClicked(item) }>
                         <img
                            src={item.album.images[0].url}
                            alt={item.album.name}

@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { useLocation, useOutletContext } from "react-router-dom";
 
 export default function Playlists() {
    const [displaySongs, setDisplaySongs] = useState([]);
    const { state } = useLocation();
+   const context = useOutletContext();
+
+   const _onSongClicked = (song) => {
+      context.onSongClicked(song);
+   }
 
    useEffect(() => {
       const loadSongs = (token) => {
@@ -35,7 +40,7 @@ export default function Playlists() {
             <ul>
                {displaySongs.map((item, index) => (
                   <li key={index}>
-                     <div className="song-item" onClick={() => console.log("Clicked!")}>
+                     <div className="song-item" onClick={ () => _onSongClicked(item) }>
                         <img
                            src={item.track.album.images[0].url}
                            alt={item.track.album.name}
