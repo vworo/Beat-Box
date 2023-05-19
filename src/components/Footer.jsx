@@ -1,8 +1,8 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faBackward, faForward, faRepeat, faShuffle, faVolumeHigh, faEject, faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPlay, faBackward, faForward, faRepeat, faShuffle, faVolumeHigh, faEject, faMicrophone } from '@fortawesome/free-solid-svg-icons';
 
 export default function Footer (props) {
     const [play, setPlay] = useState(false)

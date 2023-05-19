@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import LikedSongs from "./LikedSongs";
 
 export default function NavigationSidebar(props) {
 	useEffect(() => {

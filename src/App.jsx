@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import NavigationSidebar from "./components/NavigationSidebar";
-import Footer from './components/Footer';
 import { Outlet } from "react-router-dom";
 import React from "react";
 import axios from 'axios';
 import NavigationTopbar from './components/NavigationTopbar';
+import NavigationSidebar from "./components/NavigationSidebar";
+import Footer from './components/Footer';
 
 // Spotify OAuth URLs/redirects
 // import { BrowserRouter, Routes, Route } from "react-router-dom";

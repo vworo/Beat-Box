@@ -5,10 +5,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Home from "./components/Home";
+import Search from "./components/Search";
 import App from "./App";
 import Playlists from "./components/Playlists";
-import LikedSongs from './components/LikedSongs';
 import Categories from "./components/Categories";
 
 
@@ -25,17 +24,12 @@ const router = createBrowserRouter([
       },
       {
         path: "search",
-        element: <Home />,
+        element: <Search />,
       },
       {
         path: "playlist",
         element: <Playlists />,
       },
-      {
-        path: "liked-songs",
-        element: <LikedSongs />,
-      },
-      
     ],
   },
 ]);

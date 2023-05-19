@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 
-const Home = () => {
+const Search = () => {
 
    const {searchResults} = useOutletContext();
    const context = useOutletContext();
@@ -43,4 +43,4 @@ const Home = () => {
         </div>
     );
 };
-export default Home;
+export default Search;
