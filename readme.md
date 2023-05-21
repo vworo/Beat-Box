@@ -25,6 +25,7 @@ This project is a web application that mimics the functionality of Spotify using
 - React Router: Library for routing and navigation in React applications
 - Axios: Promise-based HTTP client for making API requests
 - Spotify Web API: Used for authentication and accessing Spotify's API endpoints
+- Spotify Web Playback SDK: Used for audio playback and streaming through Spotify URI endpoints
 - HTML5 and CSS3: Markup and styling of the application
 
 ## The Team
