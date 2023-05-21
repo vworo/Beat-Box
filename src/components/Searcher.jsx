@@ -18,8 +18,6 @@ const Searcher = (props) => {
           type: "track,album,artist,playlist"
         }
       });
-      // window.location.href = "http://localhost:5173/home";
-      // navigate("http://localhost:5173/home");
 
       let artistID = data.data.artists.items[0].id;
 
@@ -34,7 +32,6 @@ const Searcher = (props) => {
       });
 
       props.onSearchResults(artistTracks.data.tracks);
-
 
       setTracks(artistTracks.data.tracks);
     } else {
@@ -60,11 +57,4 @@ const Searcher = (props) => {
   );
 }
 
-
 export default Searcher;
-
-// const handlePlay = (uri) => {
-// // This function will handle playing the selected track
-// // You can call your player component here and pass the uri of the selected track as a prop
-// return <Players uri={uri} />;
-// }
