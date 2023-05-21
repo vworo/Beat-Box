@@ -18,14 +18,23 @@ This project is a web application that mimics the functionality of Spotify using
 - Play music tracks
 - Responsive design for mobile and desktop devices
 
+## Planned features/fixes
+
+- Deployment to [netlify](https://www.netlify.com/)
+- Redirect to Home page upon authorisation (above reliant)
+- Correctly show Trending Playlist data if redirecting to Home page (possible cause due to storing token after axios request)
+- Move the search field to the Search page (caused by oversight in design phase)
+- Change search endpoint from artists data to all data and show more items from the response (extensive task, to be broken down across smaller items)
+- Fix static position of Login/Auth button
 
 ## Technologies
 
+- Vite: A fast build tool for modern web development. It provides an efficient development server and optimized build setup for React applications.
 - React: JavaScript library for building user interfaces
 - React Router: Library for routing and navigation in React applications
 - Axios: Promise-based HTTP client for making API requests
 - Spotify Web API: Used for authentication and accessing Spotify's API endpoints
-- Spotify Web Playback SDK: Used for audio playback and streaming through Spotify URI endpoints
+- [React Spotify Web Playback](https://github.com/gilbarbara/react-spotify-web-playback): A React library that integrates the Spotify Web Playback SDK for playing music and controlling playback on the web.
 - HTML5 and CSS3: Markup and styling of the application
 
 ## The Team
