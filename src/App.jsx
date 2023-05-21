@@ -7,9 +7,9 @@ import NavigationSidebar from "./components/NavigationSidebar";
 import Footer from './components/Footer';
 
 // Spotify OAuth URLs/redirects
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
 const client_id = 'db3fb3b60f7c44cf843733eb2c0976bf';
-const redirect_uri = 'http://localhost:5173';
+const redirect_uri = 'https://monumental-youtiao-1bceaf.netlify.app/search';
+// const redirect_uri = 'http://localhost:5173';
 let server_url = 'https://accounts.spotify.com/authorize';
 server_url += '?response_type=token';
 server_url += '&client_id=' + encodeURIComponent(client_id);
