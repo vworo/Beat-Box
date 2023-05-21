@@ -5,10 +5,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Home from "./components/Home";
+import Search from "./components/Search";
 import App from "./App";
 import Playlists from "./components/Playlists";
-import LikedSongs from './components/LikedSongs';
+import Categories from "./components/Categories";
+
 
 console.log("You are at the following location:", window.location);
 
@@ -19,19 +20,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "home",
-        element: <Home />,
+        element: <Categories />,
       },
       {
-        path: "app",
-        element: <Home />,
+        path: "search",
+        element: <Search />,
       },
       {
         path: "playlist",
         element: <Playlists />,
-      },
-      {
-        path: "liked-songs",
-        element: <LikedSongs />,
       },
     ],
   },

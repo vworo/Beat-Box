@@ -166,9 +166,28 @@ button {
   line-height: 1.5;
   margin: 0;
 }
-button {
-  color: #3992ff;
+.login {
+  color: #000000;
   font-weight: 500;
+  width: 4em;
+  height: 70%;
+  border-radius: 1.5em;
+  margin: 10px;
+  background-color: #00ff59;
+  border: 1.5px solid white;
+  margin-left: auto;
+}
+
+.login:hover {
+  background-color: #00a811;
+  border: 1.5px solid white;
+  color: white;
+}
+
+.login:active {
+  background-color: #00a811;
+  border: 1.5px solid black;
+  color: rgb(0, 0, 0);
 }
 
 textarea:hover,
@@ -309,6 +328,110 @@ nav > ul > li {
   top: 0.75rem;
 }
 
+#playlists {
+  list-style: none;
+}
+
+#playlistSongs{
+  max-height: calc(100vh - 200px); /* Adjust the value (200px) according to your footer height */
+  overflow-y: auto;
+}
+
+.trendingList{
+  max-height: calc(100vh - 250px); /* Adjust the value (200px) according to your footer height */
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  grid-template-rows: max-content;
+}
+.playlist-card {
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 4px;
+  display: flex;
+  text-align: center;
+  background-color: rgb(33, 33, 33);
+}
+.track-name {
+  font-size: 14px;
+  font-weight: bold;
+  color:white;
+  font-size: 80%;
+
+}
+.playlist-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.trendingList h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: block;
+  width:100%;
+}
+a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.playlist-card:hover {
+  background-color:rgba(128, 128, 128, 0.934);
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+#playlistSongs ul {
+  list-style-type: none; /* Remove dot points */
+  padding: 0; /* Remove default padding */
+}
+
+#playlistSongs ul li {
+  margin-bottom: 5px;
+}
+
+.song-item span {
+  margin-right: 5px;
+}
+
+.song-item:hover {
+  color: #eeb004;
+  background-color: #202020;
+}
+
+.song-item:focus {
+  outline: none;
+  background-color: #777777;
+}
+
+.song-item:active {
+  transform: translateY(1px);
+  background-color: #121212;
+}
+
+.song-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -353,10 +476,6 @@ i {
 
 #sidebar li {
   margin: 0.25rem 0;
-}
-
-#playlists {
-  list-style: none;
 }
 
 #sidebar nav a {
@@ -559,7 +678,15 @@ i {
 }
 
 .top-navbar {
+  background-color: hsl(0, 0%, 7%);
+  position: fixed;
+  /* top: 0; */
+  z-index: 9999999;
   display: flex;
+  width: 77%;
+  padding-bottom: 0.5em;
+  display: flex;
+  margin: auto;
 }
 
 .login {
@@ -577,19 +704,79 @@ i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
-.profile-image-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 40px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #333;
-}
 
 .profile-image {
+  border: 4px solid #1b391e;
+  padding: 2px;
+  border-radius: 100%;
+  border-top-color: #59ef90;
+  border-left-color: #22ff6f;
+  width: 65px;
+  height: 65px;
+  margin-left: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+}
+
+.user-name {
+  position: absolute;
+  bottom: 0;
+  right: 9px;
+  top: 66px;
+  font-family: 'Circular Spotify Tx T Light', 'Helvetica Neue', 'Arial', 'sans-serif';
+  font-size: 16px;
+  font-weight: bold;
+  color: #acacac;
+  margin-right: auto;
+}
+
+.SearchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -17px;
+}
+
+.SearchForm input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background-color: #6d6d6d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-top: 10px; 
+}
+
+.SearchForm input::placeholder {
+  color: #ccc;
+}
+
+.SearchForm input:focus {
+  outline: none;
+}
+
+.Name {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+}
+
+.Name:focus {
+  border: 2px solid #1db954;
+}
+
+.profile-info-container {
+  margin-left: auto;
+}
+
+h1 {
+  padding-top: 1em;
+  margin-bottom: 1px;
+}
+
+h2 {
+  padding-top: 1em;
+  margin-bottom: 1px;
 }
