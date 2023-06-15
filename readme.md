@@ -46,4 +46,3 @@ This app was a collaborative project made for our Software Engineering Immersive
 - James Holton - jamesholton2511@gmail.com
 - Victor Worobec - victorworobec@gmail.com
 
-# SpotifyClone
