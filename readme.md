@@ -41,7 +41,7 @@ This project is a web application that mimics the functionality of Spotify using
 
 This app was a collaborative project made for our Software Engineering Immersive. The team is as follows:
 - Tristan Bartolome - tristanbartolome@hotmail.com
-- Josiah Debessay - josiahdebessay@gmail.com
+- Josiah Debessay (Me) - josiahdebessay@gmail.com
 - Howard Wang - howard.wtf@gmail.com
 - James Holton - jamesholton2511@gmail.com
 - Victor Worobec - victorworobec@gmail.com
