@@ -1,6 +1,6 @@
 # Beat Box (Spotify Clone)
 
-Deployed site now available [here](https://monumental-youtiao-1bceaf.netlify.app/)
+Deployed site now available [here](https://monumental-youtiao-1bceaf.netlify.app/)!
 
 This project is a web application that mimics the functionality of Spotify using Spotify's OAuth system. Users can authenticate with their Spotify accounts and access features such as browsing playlists, searching for songs, and playing music (click on a song to listen).
 
