@@ -4,14 +4,6 @@ Deployed site now available [here](https://monumental-youtiao-1bceaf.netlify.app
 
 This project is a web application that mimics the functionality of Spotify using Spotify's OAuth system. Users can authenticate with their Spotify accounts and access features such as browsing playlists, searching for songs, and playing music (click on a song to listen).
 
-## Installation
-
-1. Clone the repository to your local machine.
-2. Navigate to the project directory in your terminal.
-3. Install dependencies using 'npm install'
-4. Install music player SDK using 'npm i react-spotify-web-playback'
-5. 'npm run dev' and follow port number displayed in the console to test see what the app would look like.
-
 ## Features
 
 - User authentication using Spotify OAuth system
