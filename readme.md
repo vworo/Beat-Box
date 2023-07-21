@@ -1,5 +1,7 @@
 # Beat Box (Spotify Clone)
 
+Deployed site now available [here](https://monumental-youtiao-1bceaf.netlify.app/)
+
 This project is a web application that mimics the functionality of Spotify using Spotify's OAuth system. Users can authenticate with their Spotify accounts and access features such as browsing playlists, searching for songs, and playing music (click on a song to listen).
 
 ## Installation
@@ -20,7 +22,6 @@ This project is a web application that mimics the functionality of Spotify using
 
 ## Planned features/fixes
 
-- Deployment to [netlify](https://www.netlify.com/)
 - Redirect to Home page upon authorisation (above reliant)
 - Correctly show Trending Playlist data if redirecting to Home page (possible cause due to storing token after axios request)
 - Move the search field to the Search page (caused by oversight in design phase)
