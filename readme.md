@@ -7,9 +7,20 @@ This project is a web application that mimics the functionality of Spotify using
 ## Features
 
 - User authentication using Spotify OAuth system
-- Browse and display playlists
+  ![image](https://github.com/vworo/Beat-Box/assets/106173556/d8fcf145-29af-45b6-9a04-2820e91f5d9d)
+
+- Browse and display saved playlists
+  ![image](https://github.com/vworo/Beat-Box/assets/106173556/18fae508-3177-4338-8984-3ecd4a79613f)
+
+- Discover new songs with trending playlists
+  ![image](https://github.com/vworo/Beat-Box/assets/106173556/b280f65d-ad64-49f5-8660-96de1da365f1)
+  
 - Search for songs and artists
+  ![image](https://github.com/vworo/Beat-Box/assets/106173556/e5a160be-c785-4641-ab95-1c4105ede737)
+
 - Play music tracks
+  ![image](https://github.com/vworo/Beat-Box/assets/106173556/ba103a13-8fe1-47f4-a293-fb762dbec58d)
+
 - Responsive design for mobile and desktop devices
 
 ## Planned features/fixes
