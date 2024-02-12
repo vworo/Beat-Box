@@ -16,7 +16,7 @@ This project is a web application that mimics the functionality of Spotify using
   ![image](https://github.com/vworo/Beat-Box/assets/106173556/b280f65d-ad64-49f5-8660-96de1da365f1)
   
 - Search for songs and artists
-  ![image](https://github.com/vworo/Beat-Box/assets/106173556/e5a160be-c785-4641-ab95-1c4105ede737)
+  ![image](https://github.com/vworo/Beat-Box/assets/106173556/e8e9e072-d127-4fd4-98d9-43a64db127ce)
 
 - Play music tracks
   ![image](https://github.com/vworo/Beat-Box/assets/106173556/ba103a13-8fe1-47f4-a293-fb762dbec58d)
